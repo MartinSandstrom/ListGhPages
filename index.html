@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>GH pages search</title>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+	</head>
+	<body ng-app="ghPagesApp">
+		<div class="container" ng-controller="mainController as vm">
+			<header class="jumbotron center">
+				<h1 class="site-header">{{ vm.title }}</h1>
+                <div class="input-group input-group-lg">
+                  <input type="text" ng-model="vm.username" ng-value="{{vm.username}}" class="form-control"/>
+                  <span class="input-group-addon clickable" ng-click="vm.list(vm.username)" id="basic-addon1">List</span>
+                </div>
+
+
+			</header>
+            <section>
+                <div ng-repeat="ghPage in vm.allGhPages">
+                    <h3> <a href="{{ghPage}}">{{ghPage}}</a> </h3>
+                </div>
+            </section>
+			<footer></footer>
+		</div>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="main.js"></script>
+	</body>
+</html>

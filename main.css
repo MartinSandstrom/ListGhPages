@@ -1,0 +1,12 @@
+body{
+    margin-top: 40px;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.site-header{
+    text-align: center;
+    margin-bottom: 80px;
+}
