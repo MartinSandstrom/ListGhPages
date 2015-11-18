@@ -1,4 +1,4 @@
-angular.module('ghPagesApp', []).controller('mainController', function($http){
+angular.module('ghPagesApp', []).controller('mainController', ['$http', function($http){
 
         var vm = this;
         vm.title = 'List your github pages';
@@ -26,4 +26,4 @@ angular.module('ghPagesApp', []).controller('mainController', function($http){
             $http.get('https://api.github.com/users/'+ username + '/repos')
             .then(onSearchComplete, onError);
         }
-});
+}]);
