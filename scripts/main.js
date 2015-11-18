@@ -6,6 +6,7 @@ angular.module('ghPagesApp', []).controller('mainController', ['$http', '$q', fu
     vm.allGhPages = [];
 
     var onSearchComplete = function(result){
+        vm.allGhPages = [];
         var url = 'http://' + vm.username + '.github.io/';
         result.data.forEach(function(data){
 
