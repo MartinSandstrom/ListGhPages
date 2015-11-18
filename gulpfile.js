@@ -21,4 +21,4 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('build', ['compress', 'minify-css']);
-gulp.task('publish', ['build']);
+gulp.task('publish', ['build', 'deploy']);
