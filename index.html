@@ -11,18 +11,16 @@
 			<header class="jumbotron center">
 				<h1 class="site-header">{{ vm.title }}</h1>
                 <div class="input-group input-group-lg">
-                  <input type="text" ng-model="vm.username" ng-value="{{vm.username}}" class="form-control"/>
+                  <input type="text" ng-model="vm.username" ng-change="vm.errorMessage = ''" class="form-control"/>
                   <span class="input-group-addon clickable" ng-click="vm.list(vm.username)" id="basic-addon1">List</span>
                 </div>
-
-
+				<p ng-if="vm.errorMessage">{{ vm.errorMessage }}</p>
 			</header>
             <section>
                 <div ng-repeat="ghPage in vm.allGhPages">
                     <h3> <a href="{{ghPage}}">{{ghPage}}</a> </h3>
                 </div>
             </section>
-			<footer></footer>
 		</div>
 		<script src="./angular.min.js"></script>
         <script src="./main.js"></script>
