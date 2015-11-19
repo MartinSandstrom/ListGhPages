@@ -4,21 +4,15 @@ angular.module('ghPagesApp', []).controller('mainController', ['$http', '$q', fu
     vm.title = 'List your github pages';
     vm.username = 'MartinSandstrom';
     vm.allGhPages = [];
+    vm.errorMessage = '';
 
     var onSearchComplete = function(result){
-        vm.allGhPages = [];
         var url = 'http://' + vm.username + '.github.io/';
         result.data.forEach(function(data){
-
-
             if(data.fork) return;
 
-            var hasGH;
-
             hasGhPage(data.name).then(function(response){
-
                  if(!response) return;
-
                  var newUrl = url + data.name
                  vm.allGhPages.push(newUrl);
              });
@@ -26,10 +20,11 @@ angular.module('ghPagesApp', []).controller('mainController', ['$http', '$q', fu
     }
 
     var onError = function(err){
-        console.log(err);
+        vm.errorMessage = 'Could not find user: ' + vm.username;
     }
 
     vm.list = function(username){
+        vm.allGhPages = [];
         $http.get('https://api.github.com/users/'+ username + '/repos')
         .then(onSearchComplete, onError);
     }
