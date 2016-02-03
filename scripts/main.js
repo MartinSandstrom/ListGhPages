@@ -1,5 +1,4 @@
 angular.module('ghPagesApp', []).controller('mainController', ['$http', '$q', function ($http, $q) {
-
 	var vm = this;
 	vm.title = 'List your github pages';
 	vm.username = 'MartinSandstrom';
